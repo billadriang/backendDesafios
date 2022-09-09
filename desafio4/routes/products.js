@@ -16,13 +16,13 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    if (!req.body.title || !req.body.price || req.body.thumbnail) return res.send({error: 'Data is required'})
+    if (!req.body.title || !req.body.price || !req.body.thumbnail) return res.send({error: 'Data is required'})
     let result = manager.create(req.body)
     res.send(result)
 })
 
 router.put('/:id', (req, res) => {
-    if (!req.body.title || !req.body.price || req.body.thumbnail) return res.send({error: 'Data is required'})
+    if (!req.body.title || !req.body.price || !req.body.thumbnail) return res.send({error: 'Data is required'})
     let result = manager.update(req.params.id, req.body)
     if (!result) return res.send({error: 'No encontre el producto'})
     res.send(result)
