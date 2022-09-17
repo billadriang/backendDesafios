@@ -1,0 +1,13 @@
+<h1>Crea un producto</h1>
+    <form action="/products" method="post">
+        <label>Titulo:</label>
+        <input name="title">
+        <label>Precio:</label>
+        <input name="price">
+        <label>Miniatura:</label>
+        <input name="thumbnail">
+        <input type="submit">
+    </form>
+
+    <a href="/products" class="btn btn-success">Ver los productos</a>
+<%- include('./partials/foot')  %> 
