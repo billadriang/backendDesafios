@@ -62,7 +62,7 @@ socket.on('chatHistory', data => {
             html += `
             <div>
                 <span style="color: blue; font-weight: bold">${message.email}</span>
-                <span style="color: red">[${message.timestamp}]: </span>
+                <span style="color: brown">[${message.timestamp}]: </span>
                 <span style="color: green">${message.message}</span>
             </div>
             `
