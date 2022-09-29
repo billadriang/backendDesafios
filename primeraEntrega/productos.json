@@ -1,0 +1,28 @@
+[{
+    "id": 1,
+    "timestamp": 1664422096240,
+    "title": "PARACETAMOL",
+    "price": 100,
+    "description": "Analgesico",
+    "code": "01",
+    "image": "https://www.laboratoriochile.cl/wp-content/uploads/2015/11/Paracetamol_500MG_16C_BE_HD.jpg",
+    "stock": 100
+}, {
+    "id": 2,
+    "timestamp": 1664422096240,
+    "title": "METFORMINA",
+    "price": 200,
+    "description": "OTROS",
+    "code": "02",
+    "image": "https://www.laboratoriochile.cl/wp-content/uploads/2015/11/Metformina_850MG_60C_BE_HD.jpg",
+    "stock": 200
+}, {
+    "id": 3,
+    "timestamp": 1664422096240,
+    "title": "FLUOXETINA",
+    "price": 300,
+    "description": "ISRS",
+    "code": "03",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.laboratoriochile.cl%2Fproducto%2Ffluoxetina-20-mg%2F&psig=AOvVaw3MngwfEFOxBZuuqCv5yUKs&ust=1664509288448000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCIi0pLmKufoCFQAAAAAdAAAAABAD",
+    "stock": 300
+}]
