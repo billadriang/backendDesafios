@@ -1,0 +1,126 @@
+# Crear base de datos:
+use ecommerce;
+
+#Crear colecciones:
+db.createCollection('productos');
+db.createCollection('mensajes');
+
+#Agregar 10 documentos con valores distintos a las colecciones mensajes y productos:
+db.productos.insertMany([
+    {
+        "timestamp": ISODate(),
+        "title": "paracetamol",
+        "price": 99,
+        "description":"analgesicos",
+        "stock": 100
+    },
+    {
+        "timestamp": ISODate(),
+        "title": "ibuprofeno",
+        "price": 210,
+        "description":"AINE",
+        "stock": 120
+    },
+    {
+        "timestamp": ISODate(),
+        "title": "diclofenaco",
+        "price": 330,
+        "description":"AINE",
+        "stock": 305
+    },
+    {
+        "timestamp": ISODate(),
+        "title": "acido acetilsalicilico",
+        "price": 600,
+        "description":"antiinflamatorio",
+        "stock": 532
+    },
+    {
+        "timestamp": ISODate(),
+        "title": "metformina",
+        "price": 1200,
+        "description":"hiploglucemiante",
+        "stock": 500
+    },
+    {
+        "timestamp": ISODate(),
+        "title": "levotiroxina",
+        "price": 3000,
+        "description":"hormonas",
+        "stock": 600
+    },
+    {
+        "timestamp": ISODate(),
+        "title": "famotidina",
+        "price": 4000,
+        "description":"inibidor bomba protones",
+        "stock": 700
+    },
+    {
+        "timestamp": ISODate(),
+        "title": "topiramato",
+        "price": 4555,
+        "description":"antiepilectico",
+        "stock": 750
+    },
+    {
+        "timestamp": ISODate(),
+        "title": "furosemida",
+        "price": 3500,
+        "description":"diuretico",
+        "stock": 800
+    },
+    {
+        "timestamp": ISODate(),
+        "title": "fluoxetina",
+        "price": 6000,
+        "description":"antidepresivo",
+        "stock": 50
+    }
+]);
+
+
+#Listar productos:
+db.productos.find();
+
+#Cantidad de productos:
+db.productos.countDocuments();
+
+#agregar otro:
+db.productos.insertOne({
+        "timestamp": ISODate(),
+        "title": "sertralina",
+        "price": 6025,
+        "description":"antidepresivo",
+        "stock": 2
+    });
+
+#devolver AINEs:
+db.productos.find({description: "AINE"}, {title: 1, _id:0});
+
+#listar menor 1000:
+db.productos.find({price: {$lt: 1000}});
+
+#listar de 1000 a 3000:
+db.productos(find {price: {$gt: 1000, $lt: 3000 });
+
+#listar mayor a 3000:
+db.productos.find({price: {$gt: 3000}});
+
+#Tercer mas barato:
+db.productos.find({},{title:1, _id:0}).sort({price:1}).skip(2).limit(1);
+
+#update stock de todo:
+db.productos.updateMany({}, {$inc: {stock: 100}});
+
+#update stock 0 a mayores de 4000:
+db.productos.updateMany({price: {$gt: 4000}}, {$set: {stock: 0}});
+
+#borrar menores a 1000:
+db.productos.deleteMany({price: {$lt: 1000}});
+
+#crear usr pepe clave asd456 solo lectura, verificar que no pueda cambiar:
+db.createUser({user: "pepe", pwd: "asd456", roles: [{role: "read", db: "ecommerce"}]});
+
+#login:
+mongo -u pepe -p --authenticationDatabase ecommerce 
